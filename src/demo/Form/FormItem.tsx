@@ -2,5 +2,5 @@ import React from 'react';
 import FormItem from '@/components/Form/FormItem';
 
 export default () => (
-  <FormItem>test content</FormItem>
+  <FormItem>test come</FormItem>
 );

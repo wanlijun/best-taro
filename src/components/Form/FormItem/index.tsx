@@ -14,7 +14,7 @@ export interface IFormItemProps {
   /**
    * @description 标签 
    */
-  label?: any;
+  label?: React.ReactNode;
   /**
    * @description 标签样式
    */
@@ -22,7 +22,7 @@ export interface IFormItemProps {
   /**
    * @description 子节点
    */
-  children?: any;
+  children: React.ReactNode;
    /**
    * @description 是否必填，注意设置true只会在label上加上*,不会自动加上校验
    */
