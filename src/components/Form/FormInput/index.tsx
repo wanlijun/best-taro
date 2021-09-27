@@ -54,7 +54,7 @@ const FormInput: React.FC<IFormInputProps> = (props) => {
   }
   return (
     <Input
-      className={`${styles.normal} sc-from-input`}
+      className={`${styles.normal} sc-form-input`}
       type={type || 'text'}
       onInput={changeProxy}
       onBlur={blurProxy}

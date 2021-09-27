@@ -37,7 +37,7 @@ const FormItem: React.FC<IFormItemProps> = ({ type, label,　labelWidth, labelCs
   const formContext = useContext(FormContext);
   
   const itemType = type ||  formContext.type || 'line';
-  const itemCss = classnames([itemType === 'border' ? styles.borderFormItem : styles.lineFormItem])
+  const itemCss = classnames([itemType === 'border' ? styles.border : styles.line])
   
   const itemLabelWidth = labelWidth || formContext.labelWidth || 'auto';
   return (

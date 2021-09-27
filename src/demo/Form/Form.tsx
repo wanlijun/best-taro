@@ -4,6 +4,8 @@ import {
   FormItem,
   FormInput
 } from '@/components/Form';
+import { View } from '@tarojs/components';
+import styles from './index.module.less';
 
 export default () => {
   const error = {
@@ -11,11 +13,12 @@ export default () => {
   }
   const [value, setValue] = useState('123');
   return (
-    <Form
-      type='border'
-      labelWidth='80px'
-      error={error}
-    >
+    <View className={styles.box}>
+      <Form
+        type='border'
+        labelWidth='60px'
+        error={error}
+      >
       <FormItem
         label='用户名'
       >
@@ -29,6 +32,16 @@ export default () => {
           }}
         />
       </FormItem>
+      <FormItem
+        label='密码'
+      >
+        <FormInput
+          password
+          placeholder='请输入'
+        />
+      </FormItem>
     </Form>
+    </View>
+    
   )
 };

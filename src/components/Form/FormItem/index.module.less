@@ -1,0 +1,40 @@
+.border {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  :global(.sc-form-input) {
+    border: 1PX solid #DFDFDF;
+  }
+}
+.line {
+  display: flex;
+  align-items: center;
+  border-bottom: 1PX solid #EFEFEF;
+  padding-left: 30px;
+  height: 107px;
+  :global(.sc-form-input) {
+    padding-left: 0 !important;
+  }
+}
+.label {
+  font-size: 28px;
+  color: #333;
+  margin-right: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.children {
+  flex-grow: 1;
+  position: relative;
+}
+.msg {
+  font-size: 12px;
+  position: absolute;
+  color: #E92929;
+}
+.required::after{
+  color: #E92929;
+  content: '*';
+  margin-left: 2px;
+}
