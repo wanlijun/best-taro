@@ -16,6 +16,10 @@ export interface IFormItemProps {
    */
   label?: React.ReactNode;
   /**
+   * @description 标签宽度
+   */
+  labelWidth?: string;
+  /**
    * @description 标签样式
    */
   labelCss?: string;
@@ -28,14 +32,21 @@ export interface IFormItemProps {
    */
   required?: boolean;
 }
-const FormItem: React.FC<IFormItemProps> = ({ type = 'line', label, labelCss, children, required}) => {
+const FormItem: React.FC<IFormItemProps> = ({ type, label,　labelWidth, labelCss, children, required}) => {
   const labelCssMerge = classnames([styles.label, labelCss,  { [styles.required] : required }])
   const formContext = useContext(FormContext);
-  console.log(formContext.type, '接收context')
+  
+  const itemType = type ||  formContext.type || 'line';
+  const itemCss = classnames([itemType === 'border' ? styles.borderFormItem : styles.lineFormItem])
+  
+  const itemLabelWidth = labelWidth || formContext.labelWidth || 'auto';
   return (
     <View>
-      <View className={type === 'border' ? styles.borderFormItem : styles.lineFormItem}>
+      <View
+        className={itemCss}
+      >
         <View
+          style={{ width: itemLabelWidth }}
           className={labelCssMerge}
         >
           {label}

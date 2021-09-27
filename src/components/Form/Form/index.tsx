@@ -24,11 +24,7 @@ export interface IFormProps {
 }
 export type IFormContext = Omit<IFormProps, "children">
 
-export const FormContext = React.createContext({
-  type: 'line',
-  labelWidth: 'auto',
-  error: null,
-} as IFormContext);
+export const FormContext = React.createContext<IFormContext>({});
 
 const Form: React.FC<IFormProps> = ({ type = 'line',labelWidth, error, children}) => {
   
