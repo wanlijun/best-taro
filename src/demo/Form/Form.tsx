@@ -15,7 +15,7 @@ export default () => {
   return (
     <View className={styles.box}>
       <Form
-        type='border'
+        type='line'
         labelWidth='60px'
         error={error}
       >
@@ -38,6 +38,7 @@ export default () => {
         <FormInput
           password
           placeholder='请输入'
+          suffix='获取验证码'
         />
       </FormItem>
     </Form>

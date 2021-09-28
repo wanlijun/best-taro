@@ -1,6 +1,11 @@
-.normal {
+.inputBox {
+  display: flex;
+  align-items: center;
+}
+.baseInput {
   font-size: 30px;
   line-height: 1.5;
+  flex-grow: 1;
   input {
     padding: 22px 30px 20px;
     box-sizing: border-box;
@@ -9,7 +14,8 @@
     border-radius: 0
   }
 }
-.border {
-  .normal;
-  border: 1px solid #DFDFDF;
+.suffix {
+  margin-left: 10px;
+  font-size: 28px;
+  flex-shrink: 0;
 }

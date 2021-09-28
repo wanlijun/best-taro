@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from '@tarojs/components';
+import { Input, View } from '@tarojs/components';
 import { InputProps } from '@tarojs/components/types/Input';
 import { BaseEventOrig } from '@tarojs/components/types/common';
 import { ControllerRenderProps } from "react-hook-form";
@@ -19,6 +19,7 @@ interface IFormInputBaseProps {
    * @description 用户自定义onchange事件 
    */
   onCustomChange?: (event:BaseEventOrig<InputProps.inputEventDetail>) => void;
+  suffix?: React.ReactNode
 }
 type IInputProps = Omit<InputProps, 'value' | 'ref' | 'name' | 'onBlur'>
 interface IFormInputProps extends IFormInputBaseProps, Partial<ControllerRenderProps>, IInputProps {
@@ -32,6 +33,7 @@ const FormInput: React.FC<IFormInputProps> = (props) => {
     onBlur,
     onChange,
     name,
+    suffix,
     ...remainProps
   } = props;
 
@@ -53,14 +55,21 @@ const FormInput: React.FC<IFormInputProps> = (props) => {
     }
   }
   return (
-    <Input
-      className={`${styles.normal} sc-form-input`}
-      type={type || 'text'}
-      onInput={changeProxy}
-      onBlur={blurProxy}
-      name={name}
-      {...remainProps}
-    />
+    <View className={styles.inputBox}>
+       <Input
+         className={`${styles.baseInput} sc-form-input`}
+         type={type || 'text'}
+         onInput={changeProxy}
+         onBlur={blurProxy}
+         name={name}
+         {...remainProps}
+       />
+       {
+        suffix &&  <View className={styles.suffix}>{suffix}</View>
+       }
+      
+    </View>
+   
   )
 }
 export default FormInput;
