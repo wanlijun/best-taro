@@ -19,35 +19,35 @@ export interface CaptchaBtnProps {
 }
 const CaptchaBtn: React.FC<CaptchaBtnProps> = ({ second = 30, requestCaptcha}) => {
   const  [sec, setSec] = useState(second);
-  const starTimerRef = React.useRef<{
+  const startTimerRef = React.useRef<{
     timerStart: (duration?: number) => void
   }>();
-  const updateSec = () => {
-    setSec((value) => {
-      return value - 1
-    })
-  }
-  const expireCb = () => {
-    setSec(second)
-  }
-  const clearCb = () => {
-    setSec(second)
-  }
+
   useEffect(() => {
+    const updateSec = () => {
+      setSec((value) => {
+        return value - 1
+      })
+    }
+    const expireCb = () => {
+      setSec(second)
+    }
+    const clearCb = () => {
+      setSec(second)
+    }
     const {
       clearTimer,
       timerStart
     } = createTimer(second, updateSec, expireCb, clearCb);
-    starTimerRef.current = { timerStart };
+    startTimerRef.current = { timerStart };
     return () => {
       clearTimer();
     };
-  }, [])
+  }, [second])
+
   const clickHandle = () => {
-    const timerStart = starTimerRef?.current?.timerStart;
-    if(timerStart) {
-      timerStart()
-    }
+    const timerStart = startTimerRef?.current?.timerStart;
+    timerStart?.();
   }
   if(sec < second) {
     return (
