@@ -22,7 +22,7 @@ interface IFormInputBaseProps {
   suffix?: React.ReactNode
 }
 type IInputProps = Omit<InputProps, 'value' | 'ref' | 'name' | 'onBlur'>
-interface IFormInputProps extends IFormInputBaseProps, Partial<ControllerRenderProps>, IInputProps {
+export interface IFormInputProps extends IFormInputBaseProps, Partial<ControllerRenderProps>, IInputProps {
 
 }
 const FormInput: React.FC<IFormInputProps> = (props) => {

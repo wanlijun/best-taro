@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {
   Form,
   FormItem,
-  FormInput
+  FormInput,
+  CaptchaBtn
 } from '@/components/Form';
 import { View } from '@tarojs/components';
 import styles from './index.module.less';
@@ -38,7 +39,9 @@ export default () => {
         <FormInput
           password
           placeholder='请输入'
-          suffix='获取验证码'
+          suffix={
+            <CaptchaBtn requestCaptcha={() => Promise.resolve()} />
+          }
         />
       </FormItem>
     </Form>

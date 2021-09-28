@@ -7,6 +7,9 @@
       "dom.iterable",
       "esnext"
     ],
+    // 不显示声明的会默认是node_modules/@types/*
+    // 不显示声明的话setTimeout的类型NodeJS.Timeout
+    "types": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
