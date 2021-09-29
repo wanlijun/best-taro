@@ -1,5 +1,6 @@
 import path from 'path';
 
+console.log(path.resolve(__dirname, '../../', 'src'), '---')
 export default {
   chainWebpack(memo) {
     memo.plugins.delete('copy');
@@ -10,10 +11,9 @@ export default {
     '@tarojs/components$': '@tarojs/components/dist-h5/react',
     '@tarojs/taro': '@tarojs/taro-h5',
     '@tarojs/runtime': '@taro-hooks/website-runtime',
-    '@/pages': __dirname + '/src/pages',
     '@/demo': path.resolve(__dirname, '../../', 'src/demo'),
     '@/components': path.resolve(__dirname, '../../', 'src/components'),
-    '@/assets': __dirname + '/src/assets',
+    '@/utils': path.resolve(__dirname, '../../', 'src/utils'),
   },
   define: {
     'process.env.TARO_ENV': 'h5',
