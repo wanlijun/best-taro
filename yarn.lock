@@ -11976,6 +11976,14 @@ postcss-pxtransform@3.3.3:
     postcss "^6.0.16"
     postcss-pxtorem "^4.0.1"
 
+postcss-pxtransform@^3.3.9:
+  version "3.3.9"
+  resolved "https://registry.nlark.com/postcss-pxtransform/download/postcss-pxtransform-3.3.9.tgz#67011a5c2f31dd13c863cc7157225e5ece705750"
+  integrity sha1-ZwEaXC8x3RPIY8xxVyJeXs5wV1A=
+  dependencies:
+    postcss "^6.0.16"
+    postcss-pxtorem "^4.0.1"
+
 postcss-replace-overflow-wrap@^3.0.0:
   version "3.0.0"
   resolved "https://registry.nlark.com/postcss-replace-overflow-wrap/download/postcss-replace-overflow-wrap-3.0.0.tgz#61b360ffdaedca84c7c918d2b0f0d0ea559ab01c"

@@ -1,4 +1,5 @@
 import path from 'path';
+const pxtransform = require("postcss-pxtransform");
 
 console.log(path.resolve(__dirname, '../../', 'src'), '---')
 export default {
@@ -20,4 +21,20 @@ export default {
     LOCATION_APIKEY: JSON.stringify('J3OBZ-WBJKG-M5DQZ-IJQ4V-FSK2H-BTBZV'),
     BUILD_MODE: JSON.stringify(undefined),
   },
+  postcssLoader:{
+    plugins: [
+      pxtransform({
+        platform: 'h5',
+        designWidth: 750,
+      })
+    ]
+  },
+  themeConfig: {
+    carrier: 'taro ui', // 设备状态栏左侧的文本内容
+    hd: {
+      rules: [
+        { mode: 'rem', options: [100, 750] }
+      ],
+    }
+  }
 };
