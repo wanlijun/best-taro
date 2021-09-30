@@ -45,6 +45,8 @@
     "@tarojs/taro": "3.3.3",
     "dumi-theme-mobile": "^1.1.13",
     "lodash": "4.17.15",
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-pxtorem": "5.1.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-hook-form": "^7.16.1",

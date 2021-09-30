@@ -1,5 +1,5 @@
 import path from 'path';
-const pxtransform = require("postcss-pxtransform");
+const pxtorem = require("postcss-pxtorem");
 
 console.log(path.resolve(__dirname, '../../', 'src'), '---')
 export default {
@@ -21,14 +21,26 @@ export default {
     LOCATION_APIKEY: JSON.stringify('J3OBZ-WBJKG-M5DQZ-IJQ4V-FSK2H-BTBZV'),
     BUILD_MODE: JSON.stringify(undefined),
   },
-  postcssLoader:{
-    plugins: [
-      pxtransform({
-        platform: 'h5',
-        designWidth: 750,
-      })
-    ]
-  },
+  // postcssLoader:{
+  //   plugins: [
+  //     pxtransform({
+  //       platform: 'h5',
+  //       designWidth: 750,
+  //     })
+  //   ]
+  // },
+  // 配置和taro的保持一致
+  extraPostCSSPlugins: [
+    pxtorem({
+      rootValue: 40 * 750 / 640,
+      propList: ['*'],
+      targetUnit: 'rem',
+      exclude: (file) => {
+        console.log(file, '============')
+        return file.indexOf('node_modules') > -1;
+      }
+    })
+  ],
   themeConfig: {
     carrier: 'taro ui', // 设备状态栏左侧的文本内容
     hd: {
